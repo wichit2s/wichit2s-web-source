@@ -7,12 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  image = 'http://math.sci.ubu.ac.th/assets/staffimages/warawoot.jpg';
-  name = 'John Doe';
-  position = 'Programmer';
+  friends = [
+    {
+      name: 'Franky Lee Jones',
+      pic: 'frank.png',
+      position: 'CEO',
+    },
+    {
+      name: 'May Jr Lee',
+      pic: 'may.jpg',
+      position: 'Secretary',
+    },
+    {
+      name: 'Pat Tracy Johnson',
+      pic: 'pat.jpg',
+      position: 'IT Support',
+    }
+  ];
 
   constructor() {
-    this.image = 'https://wichit2s.gitlab.io/assets/images/paul_logo_96x96.png';
+    // this.image = 'https://wichit2s.gitlab.io/assets/images/paul_logo_96x96.png';
   }
 
   ngOnInit() {
