@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,27 @@ export class UserService {
       position: 'IT Support',
     }
   ];
+  users: any
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this._getUsers()
+  }
+
+  _getUsers() {
+    this.http.post(
+      'http://cs.sci.ubu.ac.th:7512/59110440084/user/_search',
+      {
+        query: {
+          wildcard: {
+            user: { value: '*an*' }
+          }
+        }
+      }
+    ).subscribe( data => {
+      this.users = data['result']['hits']
+      console.log(this.users)
+    }, error => {});
+  }
 
   getFriends() {
     return this.friends;
