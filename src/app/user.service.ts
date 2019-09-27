@@ -30,7 +30,7 @@ export class UserService {
   }
 
   _getUsers() {
-    this.http.post(
+    return this.http.post(
       'http://cs.sci.ubu.ac.th:7512/59110440084/user/_search',
       {
         query: {
@@ -39,10 +39,11 @@ export class UserService {
           }
         }
       }
-    ).subscribe( data => {
+    ); /*.subscribe( data => {
       this.users = data['result']['hits']
       console.log(this.users)
     }, error => {});
+    */
   }
 
   getFriends() {

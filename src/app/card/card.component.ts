@@ -9,12 +9,22 @@ import { UserService } from '../user.service';
 export class CardComponent implements OnInit {
 
   friends: any
+  users: any
 
-  constructor(private user: UserService) {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
-    this.friends = this.user.getFriends();
+    this.friends = this.userService.getFriends();
+    this.userService._getUsers().subscribe(
+      data => {
+        this.users = data['result']['hits']
+        // console.log(this.users)
+      },
+      error => {
+
+      }
+    )
   }
 
 }
