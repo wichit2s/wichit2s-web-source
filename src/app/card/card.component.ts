@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-card',
@@ -7,29 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  friends = [
-    {
-      name: 'Franky Lee Jones',
-      pic: 'frank.png',
-      position: 'CEO',
-    },
-    {
-      name: 'May Jr Lee',
-      pic: 'may.jpg',
-      position: 'Secretary',
-    },
-    {
-      name: 'Pat Tracy Johnson',
-      pic: 'pat.jpg',
-      position: 'IT Support',
-    }
-  ];
+  friends: any
 
-  constructor() {
-    // this.image = 'https://wichit2s.gitlab.io/assets/images/paul_logo_96x96.png';
+  constructor(private user: UserService) {
   }
 
   ngOnInit() {
+    this.friends = this.user.getFriends();
   }
 
 }
