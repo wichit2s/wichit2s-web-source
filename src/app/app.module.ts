@@ -6,12 +6,14 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { CardComponent } from './card/card.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    CardComponent
+    CardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

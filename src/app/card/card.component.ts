@@ -19,7 +19,12 @@ export class CardComponent implements OnInit {
     this.userService._getUsers().subscribe(
       data => {
         this.users = data['result']['hits']
-        // console.log(this.users)
+        console.log(this.users)
+        for (let u of this.users) {
+          // console.log(u['source'])
+          // console.log(u._source)
+          console.log(u._source.user)
+        }
       },
       error => {
 
