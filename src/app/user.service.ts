@@ -34,9 +34,11 @@ export class UserService {
       'http://cs.sci.ubu.ac.th:7512/59110440084/user/_search',
       {
         query: {
+          /*
           wildcard: {
             user: { value: '*an*' }
           }
+          */
         }
       }
     ); /*.subscribe( data => {
@@ -44,6 +46,17 @@ export class UserService {
       console.log(this.users)
     }, error => {});
     */
+  }
+
+  _saveUser(usr: string, passwd: string) {
+    console.log(`user=${usr} passwd:${passwd}`);
+    return this.http.post(
+      'http://cs.sci.ubu.ac.th:7512/59110440084/user/_create',
+      {
+        user: usr,
+        password: passwd,
+      }
+    );
   }
 
   getFriends() {

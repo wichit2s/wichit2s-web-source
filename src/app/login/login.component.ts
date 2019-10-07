@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
   login(user: string, password: string) {
     // console.log(`เรียกฟังก์ชัน login(user=${user}, password=${password})`);
     if (user === 'admin') {
-      console.log('ยินดีต้อนรับ admin')
+      console.log('ยินดีต้อนรับ admin');
     } else {
-      console.log(`ยินดีต้อนรับคุณ ${user}`)
+      console.log(`ยินดีต้อนรับคุณ ${user}`);
     }
   }
 }
